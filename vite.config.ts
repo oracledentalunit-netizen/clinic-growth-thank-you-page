@@ -6,9 +6,8 @@ import {defineConfig, loadEnv} from 'vite';
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
   return {
-    // Set base for GitHub Pages deployment. 
-    // './' makes assets relative, supporting both root and sub-folders.
-    base: './',
+    // Set base for Cloudflare Pages deployment. 
+    base: '/',
     plugins: [react(), tailwindcss()],
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
