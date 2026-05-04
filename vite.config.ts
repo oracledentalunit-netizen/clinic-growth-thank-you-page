@@ -6,8 +6,9 @@ import {defineConfig, loadEnv} from 'vite';
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
   return {
-    // Use relative paths for assets in production to support sub-folder deployments (like repo-name.github.io/my-site/)
-    base: process.env.NODE_ENV === 'production' ? './' : '/',
+    // Set base for GitHub Pages deployment. 
+    // './' makes assets relative, supporting both root and sub-folders.
+    base: './',
     plugins: [react(), tailwindcss()],
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
