@@ -6,6 +6,8 @@ import {defineConfig, loadEnv} from 'vite';
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
   return {
+    // Set base for GitHub Pages deployment. 
+    // './' makes assets relative, supporting both root and sub-folders.
     base: './',
     plugins: [react(), tailwindcss()],
     define: {
